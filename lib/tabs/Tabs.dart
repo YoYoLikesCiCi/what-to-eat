@@ -48,6 +48,9 @@ class _TabsState extends State<Tabs> {
               onTap: (int index){
                   setState(() {
                       this._currentIndex = index;
+                      if (_currentIndex == 2){
+                      
+                      }
                   });
               },
               type: BottomNavigationBarType.fixed,

@@ -8,8 +8,17 @@ class KitchenPage extends StatefulWidget {
 class _KitchenPageState extends State<KitchenPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('wait'),
+    return Center(
+      child: Column(
+        children: <Widget>[
+          RaisedButton(
+            child: Text('press me Test'),
+            onPressed: (){
+              print('test');
+            },
+          )
+        ],
+      ),
     );
   }
 }

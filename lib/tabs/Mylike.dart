@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:what_to_eat/functions/Functions.dart';
+import 'package:image/image.dart';
+import 'dart:io';
+
 class MyLikePage extends StatefulWidget {
   @override
   _MyLikePageState createState() => _MyLikePageState();
@@ -12,46 +15,13 @@ class _MyLikePageState extends State<MyLikePage> {
       child: Column(
         children: <Widget>[
           RaisedButton(
-            child: Text("前往登陆界面"),
+            child: Text('press me Test'),
             onPressed: (){
-              Navigator.pushNamed(context, '/register');
+              print('kk');
             },
-          ),
-          RaisedButton(
-            child: Text("logintest"),
-            onPressed: ()async{
-//              var aa = await localData('readuser');
-//              print (aa);
-              Map aa = {
-                'name' : '孙起',
-                'password' : '123456'
-              };
-              var bb = await Login(aa);
-              print(bb.toString());
-            },
-          ),
-          RaisedButton(
-            child: Text("前往登陆界面"),
-            onPressed: (){
-              Navigator.pushNamed(context, '/signpage');
-            },
-          ),
-          RaisedButton(
-            child: Text("测试"),
-            onPressed: ()async{
-              print(await localData('readuser'));
-            },
-          ),
-          RaisedButton(
-            child: Text("remove"),
-            onPressed: ()async{
-              print(await localData('clear'));
-      
-            },
-          ),
-
+          )
         ],
-      )
+      ),
     );
   }
 }

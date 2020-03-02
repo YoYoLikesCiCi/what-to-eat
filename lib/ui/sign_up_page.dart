@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:what_to_eat/style/theme.dart' as theme;
 import 'package:fluttertoast/fluttertoast.dart';
 import '../functions/Functions.dart';
-
+import '../functions/SharedPreferences.dart';
 /**
  * 注册界面
  */
@@ -135,8 +135,8 @@ class _SignUpPageState extends State<SignUpPage> {
                         alertDialog('用户名错误', '用户名已存在，请重新注册');
                       } else if (status == 1) {
                         Map tempmap2 = {
-                          'name': userID.text,
-                          'password': _password
+                          'nameJZM': userID.text,
+                          'passwordJZM': _password
                         };
                         localData('saveuser', data: tempmap2);
                         Navigator.pushReplacementNamed(context, '/');

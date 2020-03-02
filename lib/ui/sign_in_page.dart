@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:what_to_eat/style/theme.dart' as theme;
 import '../functions/Functions.dart';
+import '../functions/SharedPreferences.dart';
+
 /**
  *登陆界面
  */
@@ -202,6 +204,7 @@ class _SignInPageState extends State<SignInPage> {
             };
             var bb = await Login(aa);
             if (bb == 1){
+              localData('saveuser',data:{'nameJZM':_userID.text,'passwordJZM':_password.text});
               Navigator.pushReplacementNamed(context, '/');
             }else if(bb == 3){
               alertDialog('错误', '用户不存在，请输入正确的用户名');

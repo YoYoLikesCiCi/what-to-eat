@@ -3,6 +3,8 @@ import '../functions/Functions.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import '../functions/SharedPreferences.dart';
+
 
 class RegisterPage extends StatefulWidget {
   @override

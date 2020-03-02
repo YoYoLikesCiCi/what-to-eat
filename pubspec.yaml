@@ -32,7 +32,9 @@ dependencies:
   amap_core_fluttify: ^0.5.5+008cc2f
   font_awesome_flutter: ^8.7.0
   random_pk: ^0.0.3
-
+  image_picker: ^0.6.3+4
+  permission_handler: ^4.2.0+hotfix.3
+  decorated_flutter: ^0.11.0+1
 
 dev_dependencies:
   flutter_test:

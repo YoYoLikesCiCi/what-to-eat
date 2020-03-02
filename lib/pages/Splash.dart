@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import '../functions/Functions.dart';
 import 'dart:async';
-import '../routes/Routes.dart';
+import '../functions/SharedPreferences.dart';
 
 class SplashPage extends StatefulWidget{
     
@@ -34,7 +33,7 @@ class _SplashPage extends State<SplashPage>{
     
     void countDown() {
         //设置倒计时三秒后执行跳转方法
-        var duration = new Duration(seconds: 3);
+        var duration = new Duration(seconds: 1);
         new Future.delayed(duration, goToHomePage);
         
     }

@@ -7,6 +7,7 @@ import 'package:amap_location_fluttify/amap_location_fluttify.dart';
 import 'package:amap_map_fluttify/amap_map_fluttify.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:decorated_flutter/decorated_flutter.dart';
+//import 'package:url_launcher/url_launcher.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import '../widgets/scrollable_text.widget.dart';
 class BuyBuyPage extends StatefulWidget {
@@ -102,11 +103,14 @@ class _BuyBuyPageState extends State<BuyBuyPage> {
                       String address =await v.address;
                       String title =await v.title;
 //                      String tel = await v.tel;
-//                      LatLng latLng =await v.latLng;
+                      LatLng latLng =await v.latLng;
 //                      double lat = latLng.latitude;
 //                      double lon = latLng.longitude;
-                      poiTitleList.add({"address":address,"title":title,});
+                      poiTitleList.add({"address":address,"title":title,'lat':latLng});
                       _keywordController.text = '为您找到'+poiTitleList.length.toString()+'个结果';
+                      setState(() {
+
+                      });
                     });
                     
                     setState(() {
@@ -158,8 +162,19 @@ class _BuyBuyPageState extends State<BuyBuyPage> {
       leading: Icon(Icons.restaurant_menu),
       title:Text(newItem['title']),
       subtitle: Text(newItem['address']),
+      onTap: (){
+        AmapService.navigateDrive(newItem['lat']);
+      },
     );
   }
+//  _launchURL(String keyword1) async {
+//    final url = 'androidamap://keywordNavi?sourceApplication=softname&keyword='+keyword1+'&style=2';
+//    if (await canLaunch(url)) {
+//      await launch(url);
+//    } else {
+//      throw 'Could not launch $url';
+//    }
+//  }
   
   
 }

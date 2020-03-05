@@ -65,7 +65,7 @@ class _TabsState extends State<Tabs> {
                   ),
                   BottomNavigationBarItem(
                       icon: Icon(Icons.kitchen),
-                      title: Text('小福贵'),
+                      title: Text('小当家'),
                   ),
                   BottomNavigationBarItem(
                       icon: Icon(Icons.supervisor_account),

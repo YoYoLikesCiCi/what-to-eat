@@ -21,7 +21,7 @@ class _BuyBuyPageState extends State<BuyBuyPage> {
   
   Location location ;
   var tempLatLng = LatLng(29.08,119.65);
-  String address = "刷新中……";
+  String address = "刷新中……如长期刷新不成功请切换至其他页面再返回此页面";
   String wheretoeat = "";
   double _latitude;  //纬度
   double _longitude; //经度
@@ -90,6 +90,7 @@ class _BuyBuyPageState extends State<BuyBuyPage> {
                 child: RaisedButton(
                   child: Text('觅食'),
                   onPressed: () async {
+                    FocusScope.of(context).requestFocus(new FocusNode());
                     poiTitleList.clear();
                     List poiList = await AmapSearch.searchAround(
                       LatLng(

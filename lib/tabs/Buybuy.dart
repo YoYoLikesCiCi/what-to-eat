@@ -28,7 +28,7 @@ class _BuyBuyPageState extends State<BuyBuyPage> {
   var _keywordController = TextEditingController();
   String searchCode ='050000';
   
-  List poiTitleList = [{'title':'想吃啥','address':'8千米内就吃啥','tel':' ','lat':LatLng(29.08,119.65)}];
+  List poiTitleList = [{'title':'想吃啥','address':'8千米内就吃啥','tel':' ','lat':LatLng(39.903393,116.398653)}];
   
   void _GetLocation()async {
     if (await requestPermission()) {

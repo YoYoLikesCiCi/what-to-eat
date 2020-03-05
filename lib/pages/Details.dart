@@ -41,6 +41,7 @@ class _DetailsPageState extends State<DetailsPage> {
             ingredient = food_material['ingredient'];
             main_raw_widget.clear();
             main_raw_widget =  MainRowBuilder(main_raw);
+            
             ingredient_widget = MainRowBuilder(ingredient);
             
             setState(() {
@@ -278,9 +279,14 @@ class _DetailsPageState extends State<DetailsPage> {
     
     List<Widget> MainRowBuilder(List k){
         List<Widget> Raw = [];
-        k.forEach((v){
-            Raw.add(getTimeBoxUI(v['title'], v['count']));
-        });
+        if(k == null){
+            Raw.add(getTimeBoxUI('空气', '1升'));
+        }else{
+            k.forEach((v){
+                Raw.add(getTimeBoxUI(v['title'], v['count']));
+            });
+        }
+        
         return Raw;
     }
     

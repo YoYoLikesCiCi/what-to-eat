@@ -36,6 +36,7 @@ html_parse(String html) {
     var allList = t.querySelectorAll('li');
     print("length:"+allList.length.toString());
     List alldata =[];
+    alldata.clear();
     allList.forEach((v){
         
         var divPic = v.querySelector('div>a');//包含图片链接 和详情链接
@@ -123,31 +124,39 @@ detail_parse(String html){
     //开始获取 food material 里的内容
     List temp_list = [];
     var food_material_link = tt.querySelectorAll('.particulars');
+    print('start food material');
+    print(food_material_link.length);
     
-    //添加主料信息
-    var main_raw_link = food_material_link[0].querySelectorAll('div>ul>li');
-    main_raw_link.forEach((v){
-        title = v.querySelector('.category_s1').querySelector('b').text;
-        String count = v.querySelector('.category_s2').text;
-        temp_list.add({'title':title,'count':count});
-    });
-    Map temp_map2 = new Map();
-    temp_map2['main_raw'] = temp_list;
+    if(food_material_link.length != 0){
+        //添加主料信息
+        var main_raw_link = food_material_link[0].querySelectorAll('div>ul>li');
+        main_raw_link.forEach((v){
+            title = v.querySelector('.category_s1').querySelector('b').text;
+            String count = v.querySelector('.category_s2').text;
+            temp_list.add({'title':title,'count':count});
+        });
+        Map temp_map2 = new Map();
+        temp_map2['main_raw'] = temp_list;
     
     
-    //添加辅料信息
-    List temp_list2 = [];
-    var ingredient = food_material_link[1].querySelectorAll('div>ul>li');
-    ingredient.forEach((v){
-        title = v.querySelector('.category_s1').querySelector('b').text;
-        String count = v.querySelector('.category_s2').text;
-        temp_list2.add({'title':title,'count':count});
-    });
-    temp_map2['ingredient'] = temp_list2;
+        if(food_material_link.length>1){
+            //添加辅料信息
+            List temp_list2 = [];
+            var ingredient = food_material_link[1].querySelectorAll('div>ul>li');
+            ingredient.forEach((v){
+                title = v.querySelector('.category_s1').querySelector('b').text;
+                String count = v.querySelector('.category_s2').text;
+                temp_list2.add({'title':title,'count':count});
+            });
+            temp_map2['ingredient'] = temp_list2;
+        }
+
+        data['food_material'] = temp_map2; //材料信息获取完毕
+        print(data);
+    }
 
     
-    data['food_material'] = temp_map2; //材料信息获取完毕
-    print(data);
+    
     
     print('start step');
     //开始获取步骤信息

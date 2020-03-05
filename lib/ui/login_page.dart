@@ -17,7 +17,6 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
   PageView _pageView;
   int _currentPage = 0;
 
-  
   @override
   void initState() {
     super.initState();
@@ -62,7 +61,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                 mainAxisSize: MainAxisSize.max,
                 children: <Widget>[
                   new SizedBox(
-                    height: 75,
+                    height: 25,
                   ),
                   /**
                        * 可以用SizeBox这种写法代替Padding：在Row或者Column中单独设置一个方向的间距的时候
@@ -71,11 +70,11 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
 
                   //顶部图片
                   new Image(
-                      width: 250,
-                      height: 191,
+                      width: 200,
+                      height: 153,
                       image: new AssetImage("assets/login_logo.png")),
                   new SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
 
                   //中间的Indicator指示器

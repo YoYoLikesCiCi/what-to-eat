@@ -30,7 +30,6 @@ class SecondPage extends StatelessWidget {
                     onPressed: counter.increment,
                     child: child,
                 ),
-                child: Icon(Icons.add),
             ),
         );
     }

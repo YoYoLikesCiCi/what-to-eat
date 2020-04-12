@@ -15,27 +15,9 @@ class MyLikePage extends StatelessWidget {
       child: Container(
         child: Column(
           children: <Widget>[
-            Text(Provider.of<CounterModel>(context,listen: true).value.toString()),
-//            Consumer<ChatModel>(
-//              builder: (context, ChatModel chater,_){
-//                return Column(
-//                  children: <Widget>[
-//                    Text(chater.state.toString()),
-//                    RaisedButton(
-//                      child: Icon(Icons.refresh),
-//                      onPressed: (){
-//                        chater.changeState();
-//                      },
-//                    )
-//                  ],
-//                );
-//              }
-//
-//            ),
             RaisedButton(
               child: Icon(Icons.add),
               onPressed: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=> SecondPage()));
               },
             ),
             

@@ -20,7 +20,7 @@ class _TabsState extends State<Tabs> {
         this._currentIndex = index;
     }
     
-    List _pageList = [
+    List<Widget> _pageList = [
         MyLikePage(),
         BuyBuyPage(),
         KitchenPage(),
@@ -34,11 +34,14 @@ class _TabsState extends State<Tabs> {
           appBar: AppBar(
               title: Text('今天吃啥哟'),
           ),
-          body: this._pageList[this._currentIndex],
+          body:IndexedStack(
+              index:this._currentIndex,
+              children: this._pageList,
+          ),
           floatingActionButton: FloatingActionButton(
-              child: Icon(Icons.people),
+              child: Text('食',style: TextStyle(fontSize: 28),),
               onPressed: (){
-                  print('floatingActionButton tabs');
+                  _alertDialog('决定了', '今天要吃的是--牛肉面，价格：¥10，准备好碎银去享受美食吧！');
               },
         
           ),
@@ -130,4 +133,29 @@ class _TabsState extends State<Tabs> {
           ),
       );
   }
+
+    _alertDialog(String title, String Message) async {
+        var result = await showDialog(
+            context: context,
+            builder: (context) {
+                return AlertDialog(
+                    title: Text(title),
+                    content: Text(Message),
+                    actions: <Widget>[
+                        FlatButton(
+                            child: Text('cancel'),
+                            onPressed: () {
+                                Navigator.pop(context, 'cancel');
+                            },
+                        ),
+                        FlatButton(
+                            child: Text('Yes'),
+                            onPressed: () {
+                                Navigator.pop(context, 'yes');
+                            },
+                        )
+                    ],
+                );
+            });
+    }
 }

@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>今天吃啥哟</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -20,16 +22,24 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>iosamap</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>拍摄食物照片</string>
+	<key>NSContactsUsageDescription</key>
+	<string>需要使用相册权限</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>是否允许App访问您的位置</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>打开摄像机需要</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>录制喜欢的食物的照片</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
-	<key>NSCameraUsageDescription</key>
-    <string>拍摄食物照片</string>
-    <key>NSMicrophoneUsageDescription</key>
-    <string>打开摄像机需要</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>录制喜欢的食物的照片</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UISupportedInterfaceOrientations</key>

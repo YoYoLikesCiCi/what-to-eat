@@ -60,13 +60,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
               child: new Column(
                 mainAxisSize: MainAxisSize.max,
                 children: <Widget>[
-                  new SizedBox(
-                    height: 25,
-                  ),
-                  /**
-                       * 可以用SizeBox这种写法代替Padding：在Row或者Column中单独设置一个方向的间距的时候
-                       */
-//                    new Padding(padding: EdgeInsets.only(top: 75)),
+//
 
                   //顶部图片
                   new Image(
@@ -80,7 +74,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                   //中间的Indicator指示器
                   new Container(
                     width: 300,
-                    height: 50,
+                    height: 30,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(25)),
                       color: Color(0x552B2B2B),
@@ -90,8 +84,8 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                         Expanded(
                             child: new Container(
                           /**
-                                   * TODO:暂时不会用Paint去自定义indicator，所以暂时只能这样实现了
-                                   */
+                           * TODO:暂时不会用Paint去自定义indicator，所以暂时只能这样实现了
+                           */
                           decoration: _currentPage == 0
                               ? BoxDecoration(
                                   borderRadius: BorderRadius.all(

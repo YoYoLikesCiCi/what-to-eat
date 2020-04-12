@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'routes/Routes.dart';
-import 'functions/Functions.dart';
+import 'provider_setup.dart';
+
 void main(){
-    runApp(MyApp());
+    runApp(
+        MultiProvider(
+            providers: providers,
+            child: MyApp(),
+        )
+    );
 }
 //自定义组件
 class MyApp extends StatelessWidget {

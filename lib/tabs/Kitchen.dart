@@ -17,7 +17,12 @@ class _KitchenPageState extends State<KitchenPage> {
   List first_data = [{'img':'//i3.meishichina.com/attachment/recipe/2015/01/06/c640_201501061420546594200.jpg?x-oss-process=style/c180','name':'红烧牛肉','raw':'原料：土豆、胡萝卜、大葱、姜片、八角、桂皮、红辣椒、草果、冰糖、十三香、盐、味精、老抽生抽、料酒。','href':'https://home.meishichina.com/recipe-12378.html'}];
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return GestureDetector(
+      //点击空白处收回键盘
+      behavior: HitTestBehavior.translucent,
+      onTap: (){
+        FocusScope.of(context).requestFocus(FocusNode());
+      },
       child: Column(
         children: <Widget>[
           Row(

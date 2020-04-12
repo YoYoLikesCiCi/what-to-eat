@@ -92,10 +92,10 @@ class _SignUpPageState extends State<SignUpPage> {
                   color: Colors.white,
                 ),
                 width: 300,
-                height: 360,
+                height: 250,
                 child: buildSignUpTextForm()),
             new SizedBox(
-              height: 800,
+              height: 600,
             ),
             new Positioned(
               child: new Center(
@@ -146,7 +146,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   }
                 },
               )),
-              top: 360,
+              top:250,
             )
           ],
         ));
@@ -162,7 +162,7 @@ class _SignUpPageState extends State<SignUpPage> {
         Expanded(
           child: Padding(
             padding:
-                const EdgeInsets.only(left: 25, right: 25, top: 20, bottom: 20),
+                const EdgeInsets.only(left: 25, right: 25, top: 10, bottom: 0),
             child: new TextFormField(
               decoration: new InputDecoration(
                   icon: new Icon(
@@ -190,7 +190,7 @@ class _SignUpPageState extends State<SignUpPage> {
         Expanded(
           child: Padding(
             padding:
-                const EdgeInsets.only(left: 25, right: 25, top: 20, bottom: 20),
+                const EdgeInsets.only(left: 25, right: 25, top: 10, bottom: 0),
             child: new TextFormField(
               decoration: new InputDecoration(
                   icon: new Icon(
@@ -214,7 +214,7 @@ class _SignUpPageState extends State<SignUpPage> {
         Expanded(
           child: Padding(
             padding:
-                const EdgeInsets.only(left: 25, right: 25, top: 20, bottom: 20),
+                const EdgeInsets.only(left: 25, right: 25, top: 10, bottom: 0),
             child: new TextFormField(
               decoration: new InputDecoration(
                 icon: new Icon(
@@ -255,7 +255,7 @@ class _SignUpPageState extends State<SignUpPage> {
         Expanded(
           child: Padding(
             padding:
-                const EdgeInsets.only(left: 25, right: 25, top: 20, bottom: 20),
+                const EdgeInsets.only(left: 25, right: 25, top: 10, bottom: 0),
             child: new TextFormField(
               decoration: new InputDecoration(
                 icon: new Icon(

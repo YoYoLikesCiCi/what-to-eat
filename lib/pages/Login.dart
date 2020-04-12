@@ -107,8 +107,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                             duration: Duration(milliseconds: 500),
                                             curve: Curves.decelerate);
                                       },
-                                      child: new Text(
-                                        "登录",
+                                      child: new Text("登录",
                                         style: TextStyle(fontSize: 16,),
                                       ),
                                     ),

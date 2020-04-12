@@ -10,6 +10,8 @@
         android:name="io.flutter.app.FlutterApplication"
         android:label="今天吃啥哟"
         android:icon="@drawable/ic_launcher">
+        android:usesCleartextTraffic="true"
+
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

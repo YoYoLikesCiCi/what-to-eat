@@ -60,3 +60,14 @@ localData(String operation, {Map data} ) async{
     }
     
 }
+
+chatRecord(String operation, {Map data} ) async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (operation =='read'){
+    
+    }else if (operation == 'write'){
+    
+    }
+    
+    
+}

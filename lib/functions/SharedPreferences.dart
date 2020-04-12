@@ -1,11 +1,5 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-
-
-localtionSave() async{
-
-}
-
 //本地数据读写
 localData(String operation, {Map data} ) async{
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -35,12 +29,12 @@ localData(String operation, {Map data} ) async{
         
     }else if(operation == 'readfood'){  // 读出食品数据
         //        名字   foodname
-        //        价格   price
-        //        食用次数 times
-        //        类型   type
-        //        备注   notes
-        //        地点   location
-        //        坐标  coord
+        //        价格   price  0
+        //        食用次数 times  1
+        //        类型   type     2
+        //        备注   notes    3
+        //        地点   location  4
+        //        坐标  coord   5
         var food_map = new Map();
         var all = prefs.getKeys();
         all.forEach((key){
@@ -58,16 +52,5 @@ localData(String operation, {Map data} ) async{
     }else if(operation == 'clear'){  //清除所有数据，用户登录时使用
         prefs.clear();
     }
-    
-}
-
-chatRecord(String operation, {Map data} ) async{
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    if (operation =='read'){
-    
-    }else if (operation == 'write'){
-    
-    }
-    
     
 }

@@ -1,11 +1,7 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:web_socket_channel/io.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 import '../functions/SharedPreferences.dart';
-import '../pages/ChatDetail.dart';
+
 
 
 class ChatModel with ChangeNotifier{
@@ -171,17 +167,4 @@ class ChatModel with ChangeNotifier{
     
 }
 
-
-
-
-
-class CounterModel with ChangeNotifier {
-    int _count = 1;
-    int get value => _count;
-    
-    void increment() {
-        _count++;
-        notifyListeners();
-    }
-}
 

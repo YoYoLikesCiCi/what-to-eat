@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:what_to_eat/functions/Functions.dart';
+import 'package:what_to_eat/models/Foods.dart';
 import 'dart:async';
 import '../functions/SharedPreferences.dart';
 
@@ -39,6 +42,21 @@ class _SplashPage extends State<SplashPage>{
     }
     
     void goToHomePage()async{
+        var username = await localData('readuser');
+        if(username != 'empty'){
+            var getFoodResult = await GetFoodData('getfood', {'name':username});
+            Consumer<FoodModel>(
+                // ignore: missing_return
+                builder: (context,FoodModel foodmodel,_){
+                    if(getFoodResult[0] != 0){
+                        print(getFoodResult);
+                        getFoodResult.forEach((v){
+                            foodmodel.addFood(PackageFood(v));
+                        });
+                    }
+                });
+            
+        }
         
         Navigator.pushReplacementNamed(context, (await localData('readuser')=='empty')?'/signpage':'/');
         

@@ -10,8 +10,8 @@ import 'package:socket_io_client/socket_io_client.dart' as IO;
 import 'dart:convert';
 import '../functions/SharedPreferences.dart';
 import 'package:provider/provider.dart';
-import '../functions/ProviderChat.dart';
-import '../functions/MessageItem.dart';
+import '../models/ProviderChat.dart';
+import 'MessageItem.dart';
 
 class ChatDetailPage extends StatefulWidget {
   

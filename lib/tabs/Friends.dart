@@ -1,20 +1,9 @@
 import 'dart:math';
-
 import 'package:decorated_flutter/decorated_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:what_to_eat/functions/Functions.dart';
-import 'package:image/image.dart';
-import 'dart:io';
-import 'package:flutter/foundation.dart';
-import 'package:web_socket_channel/io.dart';
-import 'package:socket_io_client/socket_io_client.dart' as IO;
-import 'dart:convert';
-import '../functions/SharedPreferences.dart';
 import '../pages/ChatDetail.dart';
-import '../functions/ProviderChat.dart';
+import '../models/ProviderChat.dart';
 import 'package:provider/provider.dart';
-import '../functions/ProviderChat.dart';
-import '../pages/Second.dart';
 
 class FriendsPage extends StatefulWidget {
   @override
@@ -31,10 +20,11 @@ class _FriendsPageState extends State<FriendsPage> {
   Widget build(BuildContext context) {
     return Consumer<ChatModel>(
       builder: (context, ChatModel chatmodel,_){
+        
         bool isBack = ModalRoute.of(context).isCurrent;
         if (isBack){
-          chatmodel.setNowWho('');
-      }
+          chatmodel.setNowWho('');}
+        
         return GestureDetector(
             child: new Padding(
               padding: const EdgeInsets.fromLTRB(5,2,5,5),

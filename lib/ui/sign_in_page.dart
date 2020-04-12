@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:what_to_eat/models/Foods.dart';
 import 'package:what_to_eat/style/theme.dart' as theme;
 import '../functions/Functions.dart';
 import '../functions/SharedPreferences.dart';
-import '../functions/ProviderChat.dart';
+import '../models/ProviderChat.dart';
 import 'package:provider/provider.dart';
 /**
  *登陆界面
@@ -187,40 +188,51 @@ class _SignInPageState extends State<SignInPage> {
   Widget buildSignInButton() {
     return new Consumer<ChatModel>(
           builder: (context,ChatModel chatmodel,_){
-            return GestureDetector(
-              child: new Container(
-                padding: EdgeInsets.only(left: 42, right: 42, top: 10, bottom: 10),
-                decoration: new BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                  gradient: theme.Theme.primaryGradient2,
-                ),
-                child: new Text(
-                  "LOGIN", style: new TextStyle(fontSize: 25, color: Colors.white),),
-              ),
-              onTap: () async{
-                if (_SignInFormKey.currentState.validate()) {
-                  //如果输入都检验通过，则进行登录操作
-                  Map aa = {
-                    'name' : _userID.text,
-                    'password' : _password.text
-                  };
-                  var bb = await Login(aa);
-                  if (bb == 1){
-                    localData('saveuser',data:{'nameJZM':_userID.text,'passwordJZM':_password.text});
-                    chatmodel.Setname(aa['name']);
-                    Navigator.pushReplacementNamed(context, '/');
-                  }else if(bb == 3){
-                    alertDialog('错误', '用户不存在，请输入正确的用户名');
-                  }else if(bb == 2){
-                    alertDialog('错误', '密码错误，请输入正确的密码');
-                  }else{
-                    alertDialog('网络错误', '服务出现问题，请稍后再试');
-                  }
+            return Consumer<FoodModel>(
+              builder: (context,FoodModel foodmodel,_){
+                return GestureDetector(
+                  child: new Container(
+                    padding: EdgeInsets.only(left: 42, right: 42, top: 10, bottom: 10),
+                    decoration: new BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                      gradient: theme.Theme.primaryGradient2,
+                    ),
+                    child: new Text(
+                      "LOGIN", style: new TextStyle(fontSize: 25, color: Colors.white),),
+                  ),
+                  onTap: () async{
+                    if (_SignInFormKey.currentState.validate()) {
+                      //如果输入都检验通过，则进行登录操作
+                      Map aa = {
+                        'name' : _userID.text,
+                        'password' : _password.text
+                      };
+                      var bb = await Login(aa);
+                      if (bb == 1){
+                        localData('saveuser',data:{'nameJZM':_userID.text,'passwordJZM':_password.text});
+                        chatmodel.Setname(aa['name']);
+                        var getFoodResult = await GetFoodData('getfood', {'name':aa['name']});
+                        if(getFoodResult[0] != 0){
+                          print(getFoodResult);
+                          getFoodResult.forEach((v){
+                            foodmodel.addFood(PackageFood(v));
+                          });
+                        }
+                        Navigator.pushReplacementNamed(context, '/');
+                      }else if(bb == 3){
+                        alertDialog('错误', '用户不存在，请输入正确的用户名');
+                      }else if(bb == 2){
+                        alertDialog('错误', '密码错误，请输入正确的密码');
+                      }else{
+                        alertDialog('网络错误', '服务出现问题，请稍后再试');
+                      }
       
-                }
+                    }
 //          debugDumpApp();
-              },
+                  },
 
+                );
+              },
             );
           }
       );

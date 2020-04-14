@@ -1,16 +1,38 @@
-# what_to_eat
 
-A new Flutter application.
 
-## Getting Started
+## ChangeLog
 
-This project is a starting point for a Flutter application.
+### v0.0.7 -2020.04.14
 
-A few resources to get you started if this is your first Flutter project:
+- 最后的选择食物功能完成，进入debug阶段
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### v0.0.6 -2020.04.12
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- 聊天功能完成
+- 为部分页面添加了点击空白处软键盘消失
+
+### v0.0.5 -2020.03.05
+
+- 注册页面修改，使得iphone8的屏幕上可以正常注册
+
+### v0.0.4 -2020.03.05
+
+- 修改默认导航为天安门
+
+- 修复了还有一些菜谱无法加载的问题
+
+- 将注册页部件提高了60px
+
+### v0.0.3 -2020.03.05
+
+- 修复部分菜谱无法加载的问题
+
+
+
+### v0.0.2
+
+- 添加地图、菜谱功能
+
+### v0.0.1
+
+- 添加注册、登录功能

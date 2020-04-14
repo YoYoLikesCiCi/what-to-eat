@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
+import 'package:what_to_eat/models/Foods.dart';
+import 'package:what_to_eat/models/ProviderChat.dart';
 import 'package:what_to_eat/style/theme.dart' as theme;
 import 'package:fluttertoast/fluttertoast.dart';
 import '../functions/Functions.dart';
@@ -97,57 +100,62 @@ class _SignUpPageState extends State<SignUpPage> {
             new SizedBox(
               height: 600,
             ),
-            new Positioned(
-              child: new Center(
-                  child: GestureDetector(
-                child: Container(
-                  padding:
-                      EdgeInsets.only(top: 10, bottom: 10, left: 42, right: 42),
-                  decoration: new BoxDecoration(
-                    gradient: theme.Theme.primaryGradient2,
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
-                  ),
-                  child: new Text(
-                    "SignUp",
-                    style: new TextStyle(fontSize: 25, color: Colors.white),
-                  ),
-                ),
-                onTap: () async {
-                  if (_SignUpFormKey.currentState.validate()) {
-                    if (userID.text.length == 0) {
-                      alertDialog('错误', '用户名为空，请输入正确的用户名');
-                    } else if (this._password == null) {
-                      alertDialog('错误', '密码为空，请输入正确格式的密码');
-                    } else if (_password2 != _password) {
-                      alertDialog('错误', '两次输入的密码不一致，请重新输入');
-                    } else {
-                      var tempmap = {
-                        'name': userID.text,
-                        'password': _password,
-                        'email': email_controller.text,
-                        'sex': '男',
-                      };
-
-                      var status = await UserDataPost('register', tempmap);
-                      if (status == 0) {
-                        alertDialog('网络错误', '服务器发生了未知的错误，请稍后尝试');
-                      } else if (status == 2) {
-                        alertDialog('用户名错误', '用户名已存在，请重新注册');
-                      } else if (status == 1) {
-                        Map tempmap2 = {
-                          'nameJZM': userID.text,
-                          'passwordJZM': _password
-                        };
-                        localData('saveuser', data: tempmap2);
-                        Navigator.pushReplacementNamed(context, '/');
-                        _toast('注册并登录成功');
-                      }
-                    }
-                  }
-                },
-              )),
-              top:250,
-            )
+            Consumer<ChatModel>(
+            builder: (context,ChatModel chatmodel,_){
+              return new Positioned(
+                child: new Center(
+                    child: GestureDetector(
+                      child: Container(
+                        padding:
+                        EdgeInsets.only(top: 10, bottom: 10, left: 42, right: 42),
+                        decoration: new BoxDecoration(
+                          gradient: theme.Theme.primaryGradient2,
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                        ),
+                        child: new Text(
+                          "SignUp",
+                          style: new TextStyle(fontSize: 25, color: Colors.white),
+                        ),
+                      ),
+                      onTap: () async {
+                        if (_SignUpFormKey.currentState.validate()) {
+                          if (userID.text.length == 0) {
+                            alertDialog('错误', '用户名为空，请输入正确的用户名');
+                          } else if (this._password == null) {
+                            alertDialog('错误', '密码为空，请输入正确格式的密码');
+                          } else if (_password2 != _password) {
+                            alertDialog('错误', '两次输入的密码不一致，请重新输入');
+                          } else {
+                            var tempmap = {
+                              'name': userID.text,
+                              'password': _password,
+                              'email': email_controller.text,
+                              'sex': '男',
+                            };
+              
+                            var status = await UserDataPost('register', tempmap);
+                            if (status == 0) {
+                              alertDialog('网络错误', '服务器发生了未知的错误，请稍后尝试');
+                            } else if (status == 2) {
+                              alertDialog('用户名错误', '用户名已存在，请重新注册');
+                            } else if (status == 1) {
+                              Map tempmap2 = {
+                                'nameJZM': userID.text,
+                                'passwordJZM': _password
+                              };
+                              localData('saveuser', data: tempmap2);
+                              chatmodel.Setname(tempmap['name']);
+                              Navigator.pushReplacementNamed(context, '/');
+                              _toast('注册并登录成功');
+                            }
+                          }
+                        }
+                      },
+                    )),
+                top:250,
+              );
+            }),
+            
           ],
         ));
   }

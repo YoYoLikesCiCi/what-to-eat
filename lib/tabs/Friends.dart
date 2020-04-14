@@ -81,7 +81,7 @@ class _FriendsPageState extends State<FriendsPage> {
           print('name+'+name);
           print('messagestatus'+chatmodel.allChat[name+'_status'].toString());
           return ListTile(
-            leading: Icon(Icons.account_box),
+            leading: (name == '孙起'?Icon(Icons.star,color: Colors.red,):Icon(Icons.account_box)),
             title: Text(name),
             subtitle: Text('聊一聊'),
             trailing: (chatmodel.allChat[name+'_status'] == true ? Icon(Icons.message,color: Colors.red,):Icon(Icons.keyboard_arrow_right)),

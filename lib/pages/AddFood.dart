@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:what_to_eat/functions/Functions.dart';
+import 'package:what_to_eat/functions/InputFormats.dart';
 import 'package:what_to_eat/models/Foods.dart';
 
 class AddFoodPage extends StatelessWidget {
@@ -52,6 +53,7 @@ class AddFoodPage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
                                 TextField(
+                                    maxLength: 12,
                                     autofocus: true,
                                     controller: _foodnameController,
                                     decoration: InputDecoration(
@@ -64,23 +66,29 @@ class AddFoodPage extends StatelessWidget {
                                     height: 20,
                                 ),
                                 TextField(
+                                    maxLength: 8,
                                     autofocus: true,
                                     controller: _priceController,
+                                    keyboardType: TextInputType.numberWithOptions(decimal: true),
+                                    inputFormatters: [TestFormat()],
                                     decoration: InputDecoration(
                                         labelText: '几个钱呀',
                                         hintText: '请输入价格',
                                         prefixIcon: Icon(Icons.attach_money),
+                                        
                                     ),
                                 ),
                                 SizedBox(
                                     height: 20,
                                 ),
                                 TextField(
+                                    maxLength: 10,
                                     autofocus: true,
                                     controller: _typeController,
                                     decoration: InputDecoration(
                                         labelText: '什么类型呀？早点还是外卖呀',
                                         hintText: '请输入你给这项食物的分类',
+                                        
                                         prefixIcon: Icon(Icons.label_outline),
                                     ),
                                 ),
@@ -88,6 +96,7 @@ class AddFoodPage extends StatelessWidget {
                                     height: 20,
                                 ),
                                 TextField(
+                                    maxLength: 20,
                                     autofocus: true,
                                     controller: _locationController,
                                     decoration: InputDecoration(

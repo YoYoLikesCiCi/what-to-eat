@@ -22,6 +22,7 @@ class MessageItem extends StatelessWidget {
         if (message['status'] == 'Send') {
             messageWidget = MineMessageItem(message);
         } else {
+//            print('build otherItem');
             messageWidget = OtherMessageItem(message);
         }
         

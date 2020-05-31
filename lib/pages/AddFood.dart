@@ -46,7 +46,7 @@ class AddFoodPage extends StatelessWidget {
                 appBar: AppBar(
                     title: Text('添加食物'),
                 ),
-                body: GestureDetector(
+                body: SingleChildScrollView(
                     child: Container(
                         child: Column(
                             mainAxisSize: MainAxisSize.max,

@@ -150,6 +150,16 @@ class _TabsState extends State<Tabs> {
                   Navigator.of(context).pushNamedAndRemoveUntil(
                       '/signpage', (Route<dynamic> route) => false);
                 },
+              ),
+              Divider(),
+              ListTile(
+                leading: CircleAvatar(
+                  child: Icon(Icons.new_releases),
+                ),
+                title: Text('about'),
+                onTap: () {
+                  alertDialog2(context, '关于', "此App为个人学习之余制作，本人经验不多，App可能会有各种各样的bug，还请各位见谅，如有兴致，可联系我讨论你的想法或者反馈bug。\n联系方式详见侧栏:)");
+                },
               )
             ],
           ),
@@ -169,7 +179,7 @@ class _TabsState extends State<Tabs> {
           return Consumer<FoodModel>(builder: (context, FoodModel foodmodel, _) {
             return AlertDialog(
                 title: Text(title),
-                content: Text('今天要吃的是-- ${Message} --，价格：¥${foodmodel.food_names[Message]['price']}，去享受美食吧！'),
+                content: Text('今天要吃的是-- ${Message} --，价格：¥${foodmodel.food_names[Message]['price']}，要去${foodmodel.food_names[Message]['location']}吃哦，去充电吧！皮卡丘！'),
                 actions: <Widget>[
                   FlatButton(
                     child: Text('取消'),

@@ -22,19 +22,18 @@ class MyLikePage extends StatelessWidget {
       username2 = foodmodel.ReturnUserName();
 //      username2 = username;
       InitFood(foodmodel);
-      return Container(
+      return GestureDetector(
+        onDoubleTap:(){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => AddFoodPage(),));
+        },
         child: Column(
           children: <Widget>[
-            RaisedButton(
-              child: Icon(Icons.add),
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => AddFoodPage(),
-                    ));
-              },
-            ),
+//            RaisedButton(
+//              child: Icon(Icons.add),
+//              onPressed: () {
+//
+//              }
+//            ),
 //            RaisedButton(
 //              child: Icon(Icons.play_arrow),
 //              onPressed: () async {
@@ -52,7 +51,7 @@ class MyLikePage extends StatelessWidget {
               child: new ListView.separated(
                 itemBuilder: _buildExpansionItem,
                 separatorBuilder: (content, index) {
-                  return new Divider();
+                  return new Divider(color: Colors.white,height:1,);
                 },
                 itemCount: foodmodel.typeslenth,
               ),
@@ -67,13 +66,14 @@ class MyLikePage extends StatelessWidget {
     return Consumer<FoodModel>(builder: (context, FoodModel foodmodel, _) {
       List foodtypes = foodmodel.food_types.keys.toList();
       type_now = foodtypes[index];
-      return ExpansionTile(
-        title: Text(foodtypes[index]),
-        leading: Icon(Icons.filter_2, color: Colors.lightGreen),
-        backgroundColor: Colors.white,
-        initiallyExpanded: true,
-        // 是否默认展开
-        children: _buildListItemsss(foodmodel.food_types[type_now]),
+      return Card(
+        child: ExpansionTile(
+          title: Text(foodtypes[index]),
+          leading: Icon(Icons.filter_2, color: Colors.lightGreen),
+          backgroundColor: Colors.white,
+          initiallyExpanded: true,
+          // 是否默认展开
+          children: _buildListItemsss(foodmodel.food_types[type_now]),
 //          children: <Widget>[
 //            _buildListItem2(context,index),
 //            _buildListItem(context,index),
@@ -83,6 +83,7 @@ class MyLikePage extends StatelessWidget {
 ////                  itemCount: foodmodel.food_types[type_now].length,
 ////              )
 //            ]
+        ),
       );
     });
   }

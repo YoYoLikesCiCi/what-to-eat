@@ -38,8 +38,8 @@ class _FriendsPageState extends State<FriendsPage> {
                       Checkbox(
                         value: chatmodel.status,
                         onChanged: ((v) {
-                          
-                          chatmodel.status ? {chatmodel.EmitMessage('join',{'name': '孙起', 'code': '0'}), chatmodel.clear()} :chatmodel.EmitMessage('join', {'name': '孙起', 'code': '1'});
+                          chatmodel.GetUser();
+                          chatmodel.status ? {chatmodel.EmitMessage('join',{'name': chatmodel.fromname, 'code': '0'}), chatmodel.clear()} :chatmodel.EmitMessage('join', {'name': chatmodel.fromname, 'code': '1'});
                           chatmodel.changeState();
                           setState(() {
                             chat_status = v;
@@ -83,7 +83,7 @@ class _FriendsPageState extends State<FriendsPage> {
           return ListTile(
             leading: (name == '孙起'?Icon(Icons.star,color: Colors.red,):Icon(Icons.account_box)),
             title: Text(name),
-            subtitle: Text('聊一聊'),
+            subtitle: Text((name == '孙起'?'独家认证（只孙起一家）开发者':'聊一聊')),
             trailing: (chatmodel.allChat[name+'_status'] == true ? Icon(Icons.message,color: Colors.red,):Icon(Icons.keyboard_arrow_right)),
             onTap: () {
               chatmodel.setNowWho(name);

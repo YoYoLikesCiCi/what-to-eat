@@ -89,9 +89,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                           children: <Widget>[
                             Expanded(
                                 child: new Container(
-                                  /**
-                                   * TODO:暂时不会用Paint去自定义indicator，所以暂时只能这样实现了
-                                   */
+                                 
                                   decoration: _currentPage == 0
                                       ? BoxDecoration(
                                     borderRadius: BorderRadius.all(
